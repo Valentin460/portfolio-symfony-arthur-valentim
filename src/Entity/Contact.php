@@ -15,7 +15,7 @@ class Contact
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $firtname = null;
+    private ?string $firstname = null;
 
     #[ORM\Column(length: 255)]
     private ?string $name = null;
@@ -23,8 +23,8 @@ class Contact
     #[ORM\Column(length: 255)]
     private ?string $email = null;
 
-    #[ORM\Column]
-    private ?int $phone = null;
+    #[ORM\Column(length: 255)]
+    private ?string $phone = null;
 
     #[ORM\Column(type: Types::TEXT)]
     private ?string $message = null;
@@ -34,14 +34,14 @@ class Contact
         return $this->id;
     }
 
-    public function getFirtname(): ?string
+    public function getFirstname(): ?string
     {
-        return $this->firtname;
+        return $this->firstname;
     }
 
-    public function setFirtname(string $firtname): static
+    public function setFirstname(string $firstname): static
     {
-        $this->firtname = $firtname;
+        $this->firstname = $firstname;
 
         return $this;
     }
@@ -70,12 +70,12 @@ class Contact
         return $this;
     }
 
-    public function getPhone(): ?int
+    public function getPhone(): ?string
     {
         return $this->phone;
     }
 
-    public function setPhone(int $phone): static
+    public function setPhone(string $phone): static
     {
         $this->phone = $phone;
 

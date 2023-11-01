@@ -47,6 +47,12 @@ class Project
     #[ORM\Column(length: 255)]
     private ?string $picture = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $picture2 = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $picture3 = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -180,6 +186,30 @@ class Project
     public function setPicture(string $picture): static
     {
         $this->picture = $picture;
+
+        return $this;
+    }
+
+    public function getPicture2(): ?string
+    {
+        return $this->picture2;
+    }
+
+    public function setPicture2(string $picture2): static
+    {
+        $this->picture2 = $picture2;
+
+        return $this;
+    }
+
+    public function getPicture3(): ?string
+    {
+        return $this->picture3;
+    }
+
+    public function setPicture3(string $picture3): static
+    {
+        $this->picture3 = $picture3;
 
         return $this;
     }
