@@ -59,30 +59,30 @@ class ProjectCrudController extends AbstractCrudController
             ImageField::new('picture')
                 ->setLabel('Image n°1')
                 ->setBasePath('uploads/pictures')
-                ->setUploadDir('public/uploads/pictures')
-                ->setFormTypeOptions([
+                ->setUploadDir('public/uploads/pictures'),
+                /*->setFormTypeOptions([
                     'constraints' => [
                         $this->imageFileValidator->getImageFileConstraints(),
                     ],
-                ]),
+                ]),*/
             ImageField::new('picture2')
                 ->setLabel('Image n°2')
                 ->setBasePath('uploads/pictures')
-                ->setUploadDir('public/uploads/pictures')
-                ->setFormTypeOptions([
+                ->setUploadDir('public/uploads/pictures'),
+                /*->setFormTypeOptions([
                     'constraints' => [
                         $this->imageFileValidator->getImageFileConstraints(),
                     ],
-                ]),
+                ]),*/
             ImageField::new('picture3')
                 ->setLabel('Image n°3')
                 ->setBasePath('uploads/pictures')
-                ->setUploadDir('public/uploads/pictures')
-                ->setFormTypeOptions([
+                ->setUploadDir('public/uploads/pictures'),
+                /*->setFormTypeOptions([
                     'constraints' => [
                         $this->imageFileValidator->getImageFileConstraints(),
                     ],
-                ]),
+                ]),*/
         ];
     }
 }
