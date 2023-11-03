@@ -3,10 +3,10 @@
     <header>
         <div class="container">
             <div class="intro-text">
-                <img src="{{ asset('uploads/pictures/Arthur.jpg') }}" class="profile-photo">
+                <img src="{{ asset('uploads/images/Arthur.jpg') }}" class="profile-photo">
                 <div class="intro-lead-in">Arthur VALENTIM</div>
                 <div class="intro-heading">Développeur full-stack junior, actuellement en mastère ingénierie du web au sein de l'ESGI à Paris.</div>
-                <a href="{{ asset('uploads/files/CV_Arthur_Valentim.pdf') }}" download="CV_Arthur_Valentim.pdf" class="page-scroll btn btn-xl">Télécharger mon CV (207Ko) <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                <a href="{{ asset('uploads/files/CV_Arthur_Valentim.pdf') }}" download="CV_Arthur_Valentim.pdf" class="page-scroll btn btn-cv-xl">Télécharger mon CV (207Ko) <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
                         <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
                         <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
                     </svg></a>
@@ -25,8 +25,8 @@
             <div class="row">
                 {% for project in projects %}
                 <div class="col-md-4 col-sm-6 portfolio-item">
-                    <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
-                        <img src="{{ asset('uploads/pictures/' ~ project.picture) }}" class="img-responsive" alt="">
+                    <a href="{{ path('app_project_show', {'id': project.id}) }}" class="portfolio-link" data-toggle="modal">
+                        <img src="{{ asset('uploads/images/' ~ project.picture) }}" class="img-responsive" alt="">
                     </a>
                     <div class="portfolio-caption">
                         <h4>{{ project.title }}</h4>
@@ -303,36 +303,77 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">Contactez-moi</h2>
-                    <h3 class="section-subheading text-muted"></h3>
+                    <h3 class="section-subheading text-muted">
+                        {% set successMessages = app.flashes('success') %}
+                        {% set errorMessages = app.flashes('error') %}
+
+                        {% if successMessages|length > 0 %}
+                            <div class="alert alert-success">
+                                {{ successMessages[0] }}
+                            </div>
+                        {% endif %}
+
+                        {% if errorMessages|length > 0 %}
+                            <div class="alert alert-danger">
+                                {{ errorMessages[0] }}
+                            </div>
+                        {% endif %}
+                    </h3>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-12">
                     {{ form_start(form) }}
-                    <form name="sentMessage" id="contactForm" method="post" action="">
+                    <form name="sentMessage" id="contactForm" method="post" action="#contact">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    {{ form_row(form.firstname, {'label': false, 'attr': {'class': 'form-control', 'placeholder': 'Votre prénom'}}) }}
+                                    {{ form_widget(form.firstname, {'label': false, 'attr': {'class': 'form-control', 'placeholder': 'Votre prénom'}}) }}
+                                    {% if form_errors(form.firstname) %}
+                                        <div class="erreur">
+                                            {{ form_errors(form.firstname) }}
+                                        </div>
+                                    {% endif %}
                                 </div>
                                 <div class="form-group">
-                                    {{ form_row(form.name, {'label': false, 'attr': {'class': 'form-control', 'placeholder': 'Votre nom'}}) }}
+                                    {{ form_widget(form.name, {'label': false, 'attr': {'class': 'form-control', 'placeholder': 'Votre nom'}}) }}
+                                    {% if form_errors(form.name) %}
+                                        <div class="erreur">
+                                            {{ form_errors(form.name) }}
+                                        </div>
+                                    {% endif %}
                                 </div>
                                 <div class="form-group">
-                                    {{ form_row(form.email, {'label': false, 'attr': {'class': 'form-control', 'placeholder': 'Votre e-mail'}}) }}
+                                    {{ form_widget(form.email, {'label': false, 'attr': {'class': 'form-control', 'placeholder': 'Votre e-mail'}}) }}
+                                    {% if form_errors(form.email) %}
+                                        <div class="erreur">
+                                            {{ form_errors(form.email) }}
+                                        </div>
+                                    {% endif %}
                                 </div>
                                 <div class="form-group">
-                                    {{ form_row(form.phone, {'label': false, 'attr': {'class': 'form-control', 'placeholder': 'Votre numéro de téléphone'}}) }}
+                                    {{ form_widget(form.phone, {'label': false, 'attr': {'class': 'form-control', 'placeholder': 'Votre numéro de téléphone'}}) }}
+                                    {% if form_errors(form.phone) %}
+                                        <div class="erreur">
+                                            {{ form_errors(form.phone) }}
+                                        </div>
+                                    {% endif %}
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    {{ form_row(form.message, {'label': false, 'attr': {'class': 'form-control', 'placeholder': 'Votre message'}}) }}
+                                    {{ form_widget(form.message, {'label': false, 'attr': {'class': 'form-control', 'placeholder': 'Votre message'}}) }}
+                                    {% if form_errors(form.message) %}
+                                        <div class="erreur">
+                                            {{ form_errors(form.message) }}
+                                        </div>
+                                    {% endif %}
                                 </div>
                             </div>
                             {{ form_row(form._token) }}
                             <div class="clearfix"></div>
                             <div class="col-lg-12 text-center">
+                                <div class="g-recaptcha" data-sitekey="6LeCRUkoAAAAAH1eA_pLhiSKbdXAyyiVQ9sdXI3W"></div>
                                 <div id="success"></div>
                                 <button type="submit" class="btn btn-xl">{{ button_label|default('Envoyer') }}</button>
                             </div>

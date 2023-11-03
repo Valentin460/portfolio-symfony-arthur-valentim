@@ -33,10 +33,10 @@
             </g>
   </svg>
         <div class="email">
-            <label for="inputEmail">Adresse email</label>
+            <label for="inputEmail">Adresse e-mail</label>
             <div class="sec-2">
                 <ion-icon name="mail-outline"></ion-icon>
-                <input type="email" name="email" id="inputEmail" value="{{ last_username }}" placeholder="Username@gmail.com" autocomplete="email" required autofocus/>
+                <input type="email" name="email" id="inputEmail" value="{{ last_username }}" placeholder="exemple@gmail.com" autocomplete="email" required autofocus/>
             </div>
         </div>
         <div class="password">
@@ -51,7 +51,7 @@
             <div class="alert alert-danger">{{ 'Identifiants invalides'|trans() }}</div>
         {% endif %}
         <button class="login" type="submit">Connexion </button>
-        <div class="footer"><a href="{{ path('index') }}"><span>Retour à la page d'accueil</span></a></div>
+        <div class="footer"><a href="{{ path('index') }}" class="link-home"><span>Retour à la page d'accueil</span></a></div>
     </div>
 </form>
 {% endblock %}

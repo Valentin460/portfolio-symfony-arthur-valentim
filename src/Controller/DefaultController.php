@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use ReCaptcha\ReCaptcha;
 
 class DefaultController extends AbstractController
 {
@@ -21,10 +22,19 @@ class DefaultController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->persist($contact);
-            $entityManager->flush();
+            $recaptcha = new ReCaptcha('6LeCRUkoAAAAAK1VsGFs-qVPSZFYJewZA6g1onOB');
+            $resp = $recaptcha->verify($request->request->get('g-recaptcha-response'), $request->getClientIp());
 
-            return $this->redirectToRoute('index', [], Response::HTTP_SEE_OTHER);
+            if ($resp->isSuccess()) {
+                $entityManager->persist($contact);
+                $entityManager->flush();
+
+                $this->addFlash('success', 'Votre message a été envoyé avec succès.');
+                return $this->redirectToRoute('index', ['_fragment' => 'contact']);
+            } else {
+                $this->addFlash('error', 'Le CAPTCHA n\'a pas été validé. Veuillez essayer à nouveau.');
+                return $this->redirectToRoute('index', ['_fragment' => 'contact']);
+            }
         }
         return $this->render('home/index.html.twig', [
             'projects' => $projectRepository->findAll(),

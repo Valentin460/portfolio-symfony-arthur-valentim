@@ -113,3 +113,8 @@ body {
 button {
     cursor: pointer;
 }
+
+.link-home {
+    color: #000000;
+    text-decoration: none;
+}
