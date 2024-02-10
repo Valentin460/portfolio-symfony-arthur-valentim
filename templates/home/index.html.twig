@@ -25,7 +25,7 @@
             <div class="row">
                 {% for project in projects %}
                 <div class="col-md-4 col-sm-6 portfolio-item">
-                    <div class="card h-100">
+                    <div style="height: 100%">
                         <a href="{{ path('app_project_show', {'id': project.id}) }}" class="portfolio-link" data-toggle="modal">
                             <img src="{{ asset('uploads/images/' ~ project.picture) }}" class="img-responsive" alt="">
                         </a>
