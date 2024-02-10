@@ -288,7 +288,7 @@ header {
     text-align: center;
     color: #fff;
     background-attachment: fixed;
-    background-image: url("../static/images/coding.jpeg");
+    background-image: url("../static/images/coding.webp");
     background-position: center center;
     background-repeat: none;
     -webkit-background-size: cover;
@@ -686,7 +686,7 @@ section h3.section-subheading {
 section#contact {
     background-color: #222;
     background-attachment: fixed;
-    background-image: url('../static/images/contact.jpg');
+    background-image: url('../static/images/contact.webp');
     background-position: center;
     background-repeat: no-repeat;
 }
