@@ -610,6 +610,11 @@ section h3.section-subheading {
         padding: 0 30px 20px 20px;
         text-align: left;
     }
+
+    .row-project {
+        display: flex;
+        flex-wrap: wrap;
+    }
 }
 
 @media(min-width:992px) {
@@ -635,11 +640,6 @@ section h3.section-subheading {
 
     .timeline>li.timeline-inverted>.timeline-panel {
         padding: 0 20px 20px;
-    }
-
-    .row-project {
-        display: flex;
-        flex-wrap: wrap;
     }
 }
 
