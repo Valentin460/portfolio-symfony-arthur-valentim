@@ -22,7 +22,7 @@
                     <h3 class="section-subheading text-muted"></h3>
                 </div>
             </div>
-            <div class="row">
+            <div class="row row-project">
                 {% for project in projects %}
                 <div class="col-md-4 col-sm-6 portfolio-item">
                     <a href="{{ path('app_project_show', {'id': project.id}) }}" class="portfolio-link" data-toggle="modal">
