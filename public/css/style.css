@@ -641,7 +641,9 @@ section h3.section-subheading {
     .timeline>li.timeline-inverted>.timeline-panel {
         padding: 0 20px 20px;
     }
+}
 
+@media (max-width: 992px) {
     .row-project {
         display: block;
         flex-wrap: initial;
