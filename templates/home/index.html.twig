@@ -3,7 +3,7 @@
     <header>
         <div class="container">
             <div class="intro-text">
-                <img src="{{ asset('uploads/images/Arthur.jpg') }}" class="profile-photo">
+                <img src="{{ asset('uploads/images/Arthur.jpg') }}" class="profile-photo" alt="Photo Arthur">
                 <div class="intro-lead-in">Arthur VALENTIM</div>
                 <div class="intro-heading">Développeur full-stack junior, actuellement en mastère ingénierie du web au sein de l'ESGI à Paris.</div>
                 <a href="{{ asset('uploads/files/CV_Arthur_Valentim.pdf') }}" download="CV_Arthur_Valentim.pdf" class="page-scroll btn btn-cv-xl">Télécharger mon CV (207Ko) <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
@@ -26,7 +26,7 @@
                 {% for project in projects %}
                 <div class="col-md-4 col-sm-6 portfolio-item">
                     <a href="{{ path('app_project_show', {'id': project.id}) }}" class="portfolio-link" data-toggle="modal">
-                        <img src="{{ asset('uploads/images/' ~ project.picture) }}" class="img-responsive" alt="">
+                        <img src="{{ asset('uploads/images/' ~ project.picture) }}" class="img-responsive" alt="Image du projet">
                     </a>
                     <div class="portfolio-caption">
                         <h4>{{ project.title }}</h4>
