@@ -2,7 +2,7 @@
 
 Personal website using Symfony 6.3.5
 
-## GOAL OF THE PROJET : 
+## GOAL OF THE PROJECT : 
 Creating a website to present myself, talking about the technologies I have learned and exposing my differents projects (personal/professional/entrepreneurial)
 
 ## TECHNOLOGIES USED DURING THE PROJECT :
