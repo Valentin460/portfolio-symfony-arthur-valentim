@@ -119,12 +119,12 @@ fieldset[disabled] .btn-primary.active {
 
 .btn-xl {
     padding: 20px 40px;
-    border-color: rgb(255, 165, 0);
+    border-color: #2e6da4;
     border-radius: 3px;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 18px;
     color: #fff;
-    background-color: rgb(255, 165, 0);
+    background-color: #337ab7;
 }
 
 .btn-cv-xl {
