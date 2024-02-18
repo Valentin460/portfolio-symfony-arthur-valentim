@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /config/
+Disallow: /var/
+Disallow: /vendor/
+Allow: /public/
+
+Sitemap: https://www.example.com/sitemap.xml
